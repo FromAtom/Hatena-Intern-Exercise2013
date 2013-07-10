@@ -35,7 +35,7 @@ sub uri {
     my $host = $self->{host};
     my @split_ref = split (/\s+/, $self->{req});
     my $path_name = $split_ref[1];
-    return $host .  $path_name;
+    return 'http://' . $host .  $path_name;
 }
 
 sub time {
