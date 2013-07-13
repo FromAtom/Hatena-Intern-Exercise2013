@@ -20,15 +20,7 @@ sub parse {
 
     for my $line (@lines) {
         push(@log, parse_line($line));
-        #この中に1行分のparse処理を書く
     }
-
-#    my @splited_tab = split (/\t/, $line);
-#    my $method_name = $splited_tab[0];
-#    my @splited_tab2 = split (/:/, $method_name);
-
-
-#    my @log = [$log];
 
     return @log;
 }
