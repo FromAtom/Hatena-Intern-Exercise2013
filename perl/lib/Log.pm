@@ -41,7 +41,7 @@ sub uri {
 sub time {
     my $self = shift;
     my $time = $self->{epoch};
-    my $test = DateTime->from_epoch( time_zone => 'Asia/Tokyo', epoch => $time);
+    my $test = DateTime->from_epoch(time_zone => 'GMT', epoch => $time);
     return $test;
 }
 
