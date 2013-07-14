@@ -12,6 +12,7 @@ my $log = Log->new(
     size    => '2326',
     referer => 'http://www.hatena.ne.jp/',
 );
+
 print $log->method . "\n";
 print $log->path . "\n";
 print $log->protocol . "\n";

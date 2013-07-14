@@ -16,13 +16,13 @@ sub parse {
         or die "Cannot open '$self': $!";
 
     my @lines = <$fh>;
-    my @log;
+    my @logs;
 
     for my $line (@lines) {
-        push(@log, parse_line($line));
+        push(@logs, parse_line($line));
     }
 
-    return @log;
+    return [@logs];
 }
 
 sub parse_line {
