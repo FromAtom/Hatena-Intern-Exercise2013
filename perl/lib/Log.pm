@@ -38,6 +38,12 @@ sub uri {
     return 'http://' . $host .  $path_name;
 }
 
+sub status {
+    my $self = shift;
+    my $status_value = $self->{status};
+    return $status_value;
+}
+
 sub time {
     my $self = shift;
     my $time = $self->{epoch};
