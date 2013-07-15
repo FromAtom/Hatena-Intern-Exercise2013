@@ -14,25 +14,24 @@ sub group_by_user {
     my %hash_temp;
 
     for my $log (@logs) {
-        if (exists $hash_temp{$log->{user}}) {
-            if ($log->{user} eq '-') {
-                push($hash_temp{'guest'}, $log);
-            }
-            else {
-                push($hash_temp{$log->{user}}, $log);
-            }
+        my $user_name;
+
+        if (exists $log->{user}) {
+            $user_name = $log->{user};
+        }
+        else {
+            $user_name = 'guest';
+        }
+
+        if (exists $hash_temp{$user_name}) {
+            push($hash_temp{$user_name}, $log);
         }
         else{
-            if ($log->{user} eq '-') {
-                $hash_temp{'guest'} = [$log];
-            }
-            else {
-                $hash_temp{$log->{user}} = [$log];
-            }
+            $hash_temp{$user_name} = [$log];
         }
     }
 
-    return \%hash_temp
+    return \%hash_temp;
 }
 
 sub count_error {

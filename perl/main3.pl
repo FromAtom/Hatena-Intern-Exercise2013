@@ -2,6 +2,7 @@ use strict;
 use warnings;
 
 use Data::Dumper;
+use Test::Differences;
 
 use Parser;
 use LogCounter;
