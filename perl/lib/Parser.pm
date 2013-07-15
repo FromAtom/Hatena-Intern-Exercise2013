@@ -25,6 +25,9 @@ sub parse {
     return [@logs];
 }
 
+sub to_hash {
+}
+
 sub parse_line {
     my ($line) = @_;
 
