@@ -28,22 +28,16 @@ sub parse {
 sub parse_line {
     my ($line) = @_;
 
-    my %hash_temp = (
-        host    => '-',
-        user    => '-',
-        epoch   => '-',
-        req     => '-',
-        status  => '-',
-        size    => '-',
-        referer => '-',
-    );
+    my %hash_temp;
+
 
     my @elements = split (/\t/, $line);
+    chomp(@elements);
 
     for my $element (@elements) {
-        my @values = split (/:/, $element);
+        my @values = split (/:/, $element,2);
 
-        if (exists $hash_temp{$values[0]}){
+        if ($values[1] ne '-') {
             $hash_temp{$values[0]} = $values[1];
         }
     }
