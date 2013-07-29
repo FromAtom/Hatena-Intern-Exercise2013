@@ -30,3 +30,36 @@ function toHashLog (log){
 }
 
 // 課題 JS-2: 関数 `createLogTable` を記述してください
+function createLogTable (elementNode, logArray) {
+    var table     = document.createElement("table");
+    var tableBody = document.createElement("tbody");
+    var tableHead = document.createElement("thead");
+
+    var head_row = document.createElement("tr");
+    var log = logArray[0];
+
+    for (var log_key in log) {
+        var cell = document.createElement("th");
+        var cellText = document.createTextNode(log_key);
+        cell.appendChild(cellText);
+        head_row.appendChild(cell);
+    }
+
+    tableHead.appendChild(head_row);
+    table.appendChild(tableHead);
+    elementNode.appendChild(table);
+
+    for (var i = 0; i < logArray.length; i++) {
+        var row = document.createElement("tr");
+        for (var key in logArray[i]) {
+            var cell = document.createElement("td");
+            var cellText = document.createTextNode(logArray[i][key]);
+            cell.appendChild(cellText);
+            row.appendChild(cell);
+        }
+
+        tableBody.appendChild(row);
+    }
+
+    table.appendChild(tableBody);
+}
